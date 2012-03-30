@@ -36,7 +36,6 @@ public class ColorClearAllCommand extends QSCommand {
             sign.setLine(2, ChatColor.stripColor(sign.getLine(2)));
             sign.setLine(3, ChatColor.stripColor(sign.getLine(3)));
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -59,7 +58,6 @@ public class ColorClearAllCommand extends QSCommand {
             sign.setLine(2, lines[2]);
             sign.setLine(3, lines[3]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -78,7 +76,6 @@ public class ColorClearAllCommand extends QSCommand {
             sign.setLine(2, ChatColor.stripColor(sign.getLine(2)));
             sign.setLine(3, ChatColor.stripColor(sign.getLine(3)));
             sign.update();
-            logChange(player, sign);
 
         }
 

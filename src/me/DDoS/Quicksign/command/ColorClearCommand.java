@@ -41,7 +41,6 @@ public class ColorClearCommand extends QSCommand {
             backups[i] = sign.getLine(line);
             sign.setLine(line, ChatColor.stripColor(sign.getLine(line)));
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -60,7 +59,6 @@ public class ColorClearCommand extends QSCommand {
 
             sign.setLine(line, backups[i]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -76,7 +74,6 @@ public class ColorClearCommand extends QSCommand {
 
             sign.setLine(line, ChatColor.stripColor(sign.getLine(line)));
             sign.update();
-            logChange(player, sign);
 
         }
 

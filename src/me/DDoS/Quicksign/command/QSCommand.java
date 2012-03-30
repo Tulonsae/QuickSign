@@ -28,12 +28,4 @@ public abstract class QSCommand {
 
     public abstract void redo(Player player);
 
-    protected void logChange(Player player, Sign sign) {
-
-        if (plugin.getConsumer() != null) {
-
-            plugin.getConsumer().queueSignPlace(player.getName(), sign);
-
-        }
-    }
 }

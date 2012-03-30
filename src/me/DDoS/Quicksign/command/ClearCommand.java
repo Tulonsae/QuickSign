@@ -40,7 +40,6 @@ public class ClearCommand extends QSCommand {
             backups[i] = sign.getLine(line);
             sign.setLine(line, "");
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -59,7 +58,6 @@ public class ClearCommand extends QSCommand {
 
             sign.setLine(line, backups[i]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -75,7 +73,6 @@ public class ClearCommand extends QSCommand {
 
             sign.setLine(line, "");
             sign.update();
-            logChange(player, sign);
 
         }
 

@@ -99,7 +99,6 @@ public class InsertCommand extends QSCommand {
 
                 sign.setLine(line, finalLine);
                 sign.update();
-                logChange(player, sign);
 
             }
 
@@ -127,7 +126,6 @@ public class InsertCommand extends QSCommand {
 
             sign.setLine(line, backups[i]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -161,7 +159,6 @@ public class InsertCommand extends QSCommand {
 
                 sign.setLine(line, finalLine);
                 sign.update();
-                logChange(player, sign);
 
             }
         }

@@ -106,7 +106,6 @@ public class ColorAllCommand extends QSCommand {
             }
 
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -128,7 +127,6 @@ public class ColorAllCommand extends QSCommand {
             sign.setLine(2, lines[2]);
             sign.setLine(3, lines[3]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -199,7 +197,6 @@ public class ColorAllCommand extends QSCommand {
             }
             
             sign.update();
-            logChange(player, sign);
 
         }
 

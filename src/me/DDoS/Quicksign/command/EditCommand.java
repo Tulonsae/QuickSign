@@ -69,7 +69,6 @@ public class EditCommand extends QSCommand {
             backups[i] = sign.getLine(line);
             sign.setLine(line, text);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -88,7 +87,6 @@ public class EditCommand extends QSCommand {
 
             sign.setLine(line, backups[i]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -104,7 +102,6 @@ public class EditCommand extends QSCommand {
 
             sign.setLine(line, text);
             sign.update();
-            logChange(player, sign);
 
         }
 

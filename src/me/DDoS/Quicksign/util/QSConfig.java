@@ -31,8 +31,6 @@ public class QSConfig {
     private boolean useWG;
     private boolean useRes;
     private boolean useRegios;
-    private boolean useLogBlock;
-    private boolean useSpout;
     private boolean useLWC;
     //
     private String selectionMethodString;
@@ -131,10 +129,6 @@ public class QSConfig {
             config.set("useLogBock", true);
         }
 
-        if (!keys.contains("useSpout")) {
-            config.set("useSpout", true);
-        }
-
         if (!keys.contains("colorOnPlacement")) {
             config.set("colorOnPlacement", true);
         }
@@ -167,8 +161,6 @@ public class QSConfig {
         useRes = config.getBoolean("useResidence", false);
         useRegios = config.getBoolean("useRegios", false);
         useLWC = config.getBoolean("useLWC", false);
-        useLogBlock = config.getBoolean("useLogBock", true);
-        useSpout = config.getBoolean("useSpout", true);
         colorSignChange = config.getBoolean("colorOnPlacement", true);
         colorDyes = config.getBoolean("colorWithDyes", false);
         chatSigns = config.getBoolean("chatSigns", true);
@@ -184,8 +176,6 @@ public class QSConfig {
         useRes = true;
         useRegios = true;
         useLWC = false;
-        useLogBlock = true;
-        useSpout = true;
         colorSignChange = true;
         colorDyes = false;
         chatSigns = true;
@@ -259,18 +249,5 @@ public class QSConfig {
 
         }
 
-        if (!useLogBlock) {
-
-            plugin.setConsumer(null);
-            QuickSign.log.info("[QuickSign] LogBlock support disabled by config.");
-
-        }
-
-        if (!useSpout) {
-
-            plugin.setSpoutOn(false);
-            QuickSign.log.info("[QuickSign] Spout support disabled by config.");
-
-        }
     }
 }

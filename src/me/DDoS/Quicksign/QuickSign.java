@@ -4,8 +4,6 @@ import com.griefcraft.lwc.LWCPlugin;
 import com.palmergames.bukkit.towny.Towny;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import couk.Adamki11s.Regios.API.RegiosAPI;
-import de.diddiz.LogBlock.Consumer;
-import de.diddiz.LogBlock.LogBlock;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -43,12 +41,7 @@ public class QuickSign extends JavaPlugin {
     //
     private final SignGenerator signGenerator = new SignGenerator(this);
     //
-    private SpoutHandler spoutHandler;
-    private boolean spoutOn = false;
-    //
     private final Map<Player, EditSession> sessions = new HashMap<Player, EditSession>();
-    //
-    private Consumer consumer;
     //
     private final BlackList blackList = new BlackList(this);
 
@@ -62,9 +55,7 @@ public class QuickSign extends JavaPlugin {
         checkForWorldGuard();
         checkForResidence();
         checkForRegios();
-        checkForLogBlock();
         checkForLWC();
-        checkForSpout();
 
         new QSConfig().setupConfig(this);
 
@@ -109,38 +100,6 @@ public class QuickSign extends JavaPlugin {
                 QSUtil.tell(player, "disabled.");
                 return true;
 
-            }
-
-            if (args.length == 1 && args[0].equalsIgnoreCase("spout")) {
-
-                if (hasPermissions(player, Permission.USE_SPOUT)) {
-
-                    if (!spoutOn) {
-                        
-                        QSUtil.tell(player, "Spout is not installed on the server.");
-                        return true;
-                        
-                    }
-                    
-                    if (isUsing(player)) {
-
-                        QSUtil.tell(player, "Please disable QuickSign, and renable with '/qs spout'.");
-                        return true;
-
-                    } else {
-
-                        sessions.put(player, new SpoutEditSession(player, this));
-                        QSUtil.tell(player, "enabled [Spout Mode].");
-                        return true;
-
-                    }
-
-                } else {
-
-                    player.sendMessage(ChatColor.RED + "You don't have permission for this command.");
-                    return true;
-
-                }
             }
 
             if (args.length >= 3 && args[0].equalsIgnoreCase("fs")) {
@@ -222,12 +181,6 @@ public class QuickSign extends JavaPlugin {
 
     }
 
-    public SpoutHandler getSpoutHandler() {
-
-        return spoutHandler;
-
-    }
-
     public SelectionHandler getSelectionHandler() {
 
         return selectionHandler;
@@ -270,30 +223,6 @@ public class QuickSign extends JavaPlugin {
         
     }
     
-    public boolean isSpoutOn() {
-        
-        return spoutOn;
-        
-    }
-    
-    public void setSpoutOn(boolean spoutOn) {
-        
-        this.spoutOn = spoutOn;
-        
-    }
-
-    public Consumer getConsumer() {
-
-        return consumer;
-
-    }
-
-    public void setConsumer(Consumer consumer) {
-
-        this.consumer = consumer;
-
-    }
-
     private void checkForWorldGuard() {
 
         Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
@@ -357,42 +286,6 @@ public class QuickSign extends JavaPlugin {
         } else {
 
             log.info("[QuickSign] No LWC detected. Features disabled.");
-
-        }
-    }
-
-    private void checkForLogBlock() {
-
-        PluginManager pm = getServer().getPluginManager();
-        Plugin plugin = pm.getPlugin("LogBlock");
-
-        if (plugin != null && plugin instanceof LogBlock) {
-
-            log.info("[QuickSign] LogBlock detected. Features enabled.");
-            consumer = ((LogBlock) plugin).getConsumer();
-            return;
-
-        } else {
-
-            log.info("[QuickSign] No LogBlock detected. Features disabled.");
-
-        }
-    }
-
-    private void checkForSpout() {
-
-        PluginManager pm = getServer().getPluginManager();
-        Plugin plugin = pm.getPlugin("Spout");
-
-        if (plugin != null) {
-
-            log.info("[QuickSign] Spout detected. Features enabled.");
-            spoutOn = true;
-
-        } else {
-
-            log.info("[QuickSign] No Spout detected. Features disabled.");
-            spoutOn = false;
 
         }
     }

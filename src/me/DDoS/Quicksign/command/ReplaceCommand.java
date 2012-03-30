@@ -81,7 +81,6 @@ public class ReplaceCommand extends QSCommand {
             
             sign.setLine(line, finalLine);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -106,7 +105,6 @@ public class ReplaceCommand extends QSCommand {
             
             sign.setLine(line, backups[i]);
             sign.update();
-            logChange(player, sign);
             i++;
 
         }
@@ -130,7 +128,6 @@ public class ReplaceCommand extends QSCommand {
             
             sign.setLine(line, finalLine);
             sign.update();
-            logChange(player, sign);
 
         }
 
